@@ -1,0 +1,18 @@
+diff --git a/afb.module b/afb.module
+index e1c5e65..741a5d5 100644
+--- a/afb.module
++++ b/afb.module
+@@ -180,9 +180,10 @@ function afb_create_block_ajax_handler($form, $form_state) {
+  * Returns the page containing existing block list with block creation form.
+  */
+ function afb_admin_page() {
+-  $output = render(drupal_get_form('afb_existing_blocks_display_form'));
+-  $output .= render(drupal_get_form('afb_new_block_create_form'));
+-
++  $output = array(
++    'existing_blocks' => drupal_get_form('afb_existing_blocks_display_form'),
++    'create_new_block' => drupal_get_form('afb_new_block_create_form'),
++  );
+   return $output;
+ }
+ 
